@@ -7,12 +7,18 @@
 *.so
 *.egg
 *.egg-info
-
-
+node_modules
+_book
 */*.py[cod]
 */*.so
 */*.egg
 */*.egg-info
+# eBook build output
+*.epub
+*.mobi
+*.pdf
+
+
 
 __pycache__
 */__pycache__
