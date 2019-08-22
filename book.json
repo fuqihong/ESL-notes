@@ -1,0 +1,98 @@
+{
+  "title": "GitBook",
+  "description": "This is a sample book created by gitbook",
+  "generator": "site",
+  "language": "zh-hans",
+  "plugins": [
+    "disqus",
+    "mathjax",
+    "fontsettings",
+    "-sharing",
+    "sharing-plus",
+    "-lunr",
+    "-search",
+    "-highlight",
+    "prism",
+    "livereload",
+    "multipart",
+    "search-plus",
+    "advanced-emoji",
+    "github",
+    "github-buttons",
+    "emphasize",
+    "splitter",
+    "mermaid-gb3",
+    "tbfed-pagefooter",
+    "expandable-chapters-small",
+    "sectionx",
+    "anchors",
+    "copy-code-button",
+    "alerts",
+    "include-csv",
+    "atoc"
+  ],
+  "pluginsConfig": {
+    "fontSettings": {
+      "theme": "sepia",
+      "family": "serif"
+    },
+    "disqus": {
+      "shortName": "gitbookuse"
+    },
+    "prism": {
+      "css": [
+        "prismjs/themes/prism-solarizedlight.css"
+      ]
+    },
+    "github": {
+      "url": "https://github.com/fuqihong"
+    },
+    "github-buttons": {
+      "repo": "fuqihong/gitbook-use",
+      "types": [
+        "star",
+        "watch",
+        "fork"
+      ],
+      "size": "small"
+    },
+    "sharing": {
+      "douban": false,
+      "facebook": false,
+      "google": true,
+      "hatenaBookmark": false,
+      "instapaper": false,
+      "line": true,
+      "linkedin": true,
+      "messenger": false,
+      "pocket": false,
+      "qq": false,
+      "qzone": true,
+      "stumbleupon": false,
+      "twitter": false,
+      "viber": false,
+      "vk": false,
+      "weibo": true,
+      "whatsapp": false,
+      "all": [
+        "facebook", "google", "twitter",
+        "weibo", "instapaper", "linkedin",
+        "pocket", "stumbleupon"
+      ]
+    },
+    "pluginsConfig": {
+      "tbfed-pagefooter": {
+        "copyright": "Copyright &copy qihong.fu 2019",
+        "modify_label": "该文件修订时间：",
+        "modify_format": "YYYY-MM-DD HH:mm:ss"
+      }
+    },
+    "sectionx": {
+      "tag": "b"
+    },
+    "atoc": {
+      "addClass": true,
+      "className": "atoc"
+    }
+  }
+}
