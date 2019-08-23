@@ -29,7 +29,9 @@
     "copy-code-button",
     "alerts",
     "include-csv",
-    "atoc"
+    "atoc",
+    "back-to-top-button",
+    "pageview-count"
   ],
   "pluginsConfig": {
     "fontSettings": {
@@ -37,7 +39,7 @@
       "family": "serif"
     },
     "disqus": {
-      "shortName": "gitbookuse"
+      "shortName": "qihong.fu"
     },
     "prism": {
       "css": [
