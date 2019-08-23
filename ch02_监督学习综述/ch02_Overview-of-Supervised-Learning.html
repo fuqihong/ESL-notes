@@ -1,0 +1,516 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ch02_监督学习综述 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-multipart/multipart.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sectionx/sectionx.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-atoc/atoc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../ch01_Introduction/ch01_Introduction.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"fuqihong/gitbook-use","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    内容简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../ch01_Introduction/ch01_Introduction.html">
+            
+                <a href="../ch01_Introduction/ch01_Introduction.html">
+            
+                    
+                    ch01_Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="ch02_Overview-of-Supervised-Learning.html">
+            
+                <a href="ch02_Overview-of-Supervised-Learning.html">
+            
+                    
+                    ch02_监督学习综述
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >ch02_监督学习综述</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>[TOC]</p>
+<!-- toc -->
+<ul>
+<li><a href="#&#x7B2C;&#x4E8C;&#x7AE0;-&#x76D1;&#x7763;&#x5B66;&#x4E60;&#x7EFC;&#x8FF0;">&#x7B2C;&#x4E8C;&#x7AE0; &#x76D1;&#x7763;&#x5B66;&#x4E60;&#x7EFC;&#x8FF0;</a><ul>
+<li><a href="#21-&#x7B80;&#x4ECB;">2.1 &#x7B80;&#x4ECB;</a></li>
+<li><a href="#22-&#x53D8;&#x91CF;&#x6570;&#x636E;&#x7C7B;&#x578B;">2.2 &#x53D8;&#x91CF;&#x6570;&#x636E;&#x7C7B;&#x578B;</a></li>
+<li><a href="#23-&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;least-squares-&#x548C;-&#x6700;&#x8FD1;&#x90BB;&#x5C45;&#x6CD5;nearest-neighbors">2.3 &#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;(Least Squares) &#x548C; &#x6700;&#x8FD1;&#x90BB;&#x5C45;&#x6CD5;(Nearest Neighbors)</a><ul>
+<li><a href="#231-&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x548C;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;">2.3.1 &#x7EBF;&#x6027;&#x6A21;&#x578B;&#x548C;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;</a></li>
+<li><a href="#232-&#x6700;&#x8FD1;&#x90BB;&#x5C45;&#x6CD5;">2.3.2 &#x6700;&#x8FD1;&#x90BB;&#x5C45;&#x6CD5;</a></li>
+<li><a href="#233-&#x4ECE;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#x5230;nn">2.3.3 &#x4ECE;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#x5230;NN</a></li>
+</ul>
+</li>
+<li><a href="#24-&#x7EDF;&#x8BA1;&#x51B3;&#x7B56;&#x7406;&#x8BBA;">2.4 &#x7EDF;&#x8BA1;&#x51B3;&#x7B56;&#x7406;&#x8BBA;</a></li>
+<li><a href="#25-&#x7EF4;&#x6570;&#x707E;&#x96BE;curse-of-dimensionality">2.5 &#x7EF4;&#x6570;&#x707E;&#x96BE;(<em>curse of dimensionality</em>)</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1 id="&#x7B2C;&#x4E8C;&#x7AE0;-&#x76D1;&#x7763;&#x5B66;&#x4E60;&#x7EFC;&#x8FF0;"><a name="&#x7B2C;&#x4E8C;&#x7AE0;-&#x76D1;&#x7763;&#x5B66;&#x4E60;&#x7EFC;&#x8FF0;" class="plugin-anchor" href="#&#x7B2C;&#x4E8C;&#x7AE0;-&#x76D1;&#x7763;&#x5B66;&#x4E60;&#x7EFC;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B2C;&#x4E8C;&#x7AE0; &#x76D1;&#x7763;&#x5B66;&#x4E60;&#x7EFC;&#x8FF0;</h1>
+<h2 id="21-&#x7B80;&#x4ECB;"><a name="21-&#x7B80;&#x4ECB;" class="plugin-anchor" href="#21-&#x7B80;&#x4ECB;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1 &#x7B80;&#x4ECB;</h2>
+<p>Supervised learning:the goal is to use the <strong>inputs</strong> to predict the values of the <strong>outputs</strong></p>
+<ul>
+<li><p>Inputs: predictors/independent variables</p>
+</li>
+<li><p>Outputs:responses/dependent variables </p>
+</li>
+</ul>
+<h2 id="22-&#x53D8;&#x91CF;&#x6570;&#x636E;&#x7C7B;&#x578B;"><a name="22-&#x53D8;&#x91CF;&#x6570;&#x636E;&#x7C7B;&#x578B;" class="plugin-anchor" href="#22-&#x53D8;&#x91CF;&#x6570;&#x636E;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2 &#x53D8;&#x91CF;&#x6570;&#x636E;&#x7C7B;&#x578B;</h2>
+<p>Outputs:</p>
+<ul>
+<li>regression--quantitative&#xFF1A;&#x5B9A;&#x91CF;</li>
+<li>classification--qualitative&#xFF1A;&#x5B9A;&#x6027; categorical/discrete/factors</li>
+</ul>
+<p>Inputs:</p>
+<ul>
+<li>ordered categorical</li>
+</ul>
+<p>&#x5904;&#x7406;&#x591A;&#x7C7B;&#x522B;&#x7684;&#x5B9A;&#x6027;&#x53D8;&#x91CF;&#xFF0C;&#x901A;&#x5E38;&#x7528;<strong>&#x865A;&#x62DF;&#x53D8;&#x91CF;(dummy variables)</strong>&#x6765;&#x7F16;&#x7801;&#x3002;</p>
+<p>&#x8BB0;&#x53F7;&#x8BF4;&#x660E;&#xFF1A;</p>
+<ul>
+<li>&#x8F93;&#x5165;&#xFF1A;<em>X</em>&#xFF0C;<script type="math/tex; ">X_{j}</script>&#x4EE3;&#x8868;&#x7B2C;j&#x4E2A;&#x7279;&#x5F81;</li>
+<li>&#x8F93;&#x51FA;&#xFF1A;<em>Y(&#x5B9A;&#x91CF;)</em>&#xFF0C;<em>G(&#x5B9A;&#x6027;)</em>&#xFF0C;<script type="math/tex; ">\hat{Y}</script> &#x9884;&#x6D4B;&#x503C;</li>
+<li>&#x89C2;&#x6D4B;&#x503C;&#xFF08;&#x6837;&#x672C;&#xFF09;&#xFF1A;<script type="math/tex; ">x_i</script>&#x4EE3;&#x8868;&#x7B2C;i&#x4E2A;&#x6837;&#x672C;</li>
+</ul>
+<h2 id="23-&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;least-squares-&#x548C;-&#x6700;&#x8FD1;&#x90BB;&#x5C45;&#x6CD5;nearest-neighbors"><a name="23-&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;least-squares-&#x548C;-&#x6700;&#x8FD1;&#x90BB;&#x5C45;&#x6CD5;nearest-neighbors" class="plugin-anchor" href="#23-&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;least-squares-&#x548C;-&#x6700;&#x8FD1;&#x90BB;&#x5C45;&#x6CD5;nearest-neighbors"><i class="fa fa-link" aria-hidden="true"></i></a>2.3 &#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;(Least Squares) &#x548C; &#x6700;&#x8FD1;&#x90BB;&#x5C45;&#x6CD5;(Nearest Neighbors)</h2>
+<h3 id="231-&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x548C;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;"><a name="231-&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x548C;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;" class="plugin-anchor" href="#231-&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x548C;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3.1 &#x7EBF;&#x6027;&#x6A21;&#x578B;&#x548C;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;</h3>
+<p>&#x7EBF;&#x6027;&#x6A21;&#x578B;(<em>linear model</em>)&#xFF1A;</p>
+<p>&#x7ED9;&#x5B9A;&#x4E00;&#x7EC4;&#x8F93;&#x5165;<script type="math/tex; ">X^T = (X_1, X_2, X_3,….X_p)</script>,&#x901A;&#x8FC7;&#x5982;&#x4E0B;&#x6A21;&#x578B;&#x9884;&#x6D4B;Y&#xFF1A;
+<script type="math/tex; mode=display">
+\hat{Y} = \hat{\beta_0} + \sum_{j=1}^{p}X_j\hat{\beta_j}
+</script>
+&#x5176;&#x4E2D;&#xFF0C;<script type="math/tex; ">\hat{\beta_0}</script>&#x662F;&#x622A;&#x8DDD;(<em>intercept</em>)&#xFF0C;&#x5728;ML&#x91CC;&#x9762;&#x4E5F;&#x53EB;<em>bias</em>&#x3002;&#x901A;&#x5E38;&#x628A;<script type="math/tex; ">\hat{\beta_0}</script>&#x5F53;&#x505A;&#x5E38;&#x91CF;1&#x7684;&#x7CFB;&#x6570;&#xFF0C;&#x4E0A;&#x5F0F;&#x5C06;&#x7B80;&#x5316;&#x4E3A;&#xFF1A;
+<script type="math/tex; mode=display">
+\hat{Y} = X^{T}\hat{\beta}
+</script>
+&#x5229;&#x7528;&#x6B8B;&#x5DEE;&#x5E73;&#x65B9;&#x548C;(<em>residual sum of squares</em>)&#x6765;fit&#x6A21;&#x578B;&#xFF1A;
+<script type="math/tex; mode=display">
+RSS(\beta) = \sum_{i=1}^{N}(y_i - x_i^T\beta)^2
+</script>
+&#x7531;&#x4E8E;<script type="math/tex; ">RSS(\beta)</script>&#x662F;&#x4E8C;&#x6B21;&#x51FD;&#x6570;(<em>quadratic function</em>)&#xFF0C;&#x56E0;&#x6B64;&#x4E00;&#x5B9A;&#x5B58;&#x5728;&#x6700;&#x5C0F;&#x503C;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x80FD;&#x4E0D;&#x552F;&#x4E00;&#x3002;&#x53EF;&#x4EE5;&#x5C06;<script type="math/tex; ">RSS(\beta)</script>&#x5199;&#x6210;&#x5982;&#x4E0B;&#x5F62;&#x5F0F;
+<script type="math/tex; mode=display">
+RSS(\beta) = (Y - X\beta)^T(Y - X\beta)
+</script>
+&#x5BF9;<script type="math/tex; ">\beta</script>&#x6C42;&#x5BFC;&#x6570;&#x53EF;&#x5F97;<strong>Normal equation</strong>
+<script type="math/tex; mode=display">
+X^T(Y - X\beta) = 0
+</script>
+&#x82E5;<script type="math/tex; ">X^TX</script>&#x975E;&#x5947;&#x5F02;(<em>nonsingular</em>)&#xFF0C;&#x5219;<script type="math/tex; ">\beta</script>&#x6709;&#x552F;&#x4E00;&#x89E3;&#xFF1A;
+<script type="math/tex; mode=display">
+\hat{\beta} = (X^TX)^{-1}X^TY
+</script></p>
+<h3 id="232-&#x6700;&#x8FD1;&#x90BB;&#x5C45;&#x6CD5;"><a name="232-&#x6700;&#x8FD1;&#x90BB;&#x5C45;&#x6CD5;" class="plugin-anchor" href="#232-&#x6700;&#x8FD1;&#x90BB;&#x5C45;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3.2 &#x6700;&#x8FD1;&#x90BB;&#x5C45;&#x6CD5;</h3>
+<p><em>k-NN</em>&#x7B97;&#x6CD5;:&#x627E;&#x5230;&#x8DDD;&#x79BB;<em>x</em>&#x6700;&#x8FD1;&#x7684;k&#x4E2A;&#x89C2;&#x6D4B;&#x503C;&#x6765;&#x8868;&#x793A;<script type="math/tex; ">\hat{Y}</script>:
+<script type="math/tex; mode=display">
+\hat{Y}(x) = \frac{1}{k}\sum_{x_i \in N_k(x)}y_i
+</script>
+&#x5176;&#x4E2D;&#xFF1A;<script type="math/tex; ">N_{k}(x)</script>&#x8868;&#x793A;&#x5728;&#x8BAD;&#x7EC3;&#x96C6;&#x4E2D;&#x8DDD;&#x79BB;$x$&#x6700;&#x8FD1;&#x7684;<script type="math/tex; ">k</script>&#x4E2A;&#x70B9;<script type="math/tex; ">x_i</script>&#x7684;&#x96C6;&#x5408;&#x3002;</p>
+<p>&#x4ECE;&#x7B97;&#x6CD5;&#x53EF;&#x4EE5;&#x5F97;&#x77E5;&#xFF0C;&#x968F;&#x7740;k&#x7684;&#x589E;&#x5927;&#xFF0C;k-NN&#x5728;&#x8BAD;&#x7EC3;&#x96C6;&#x4E0A;&#x7684;&#x8BEF;&#x5DEE;&#x5C06;&#x9010;&#x6E10;&#x589E;&#x5927;&#x3002;&#x7279;&#x522B;&#x5730;&#xFF0C;&#x5982;&#x679C;<script type="math/tex; ">k = 1</script>&#xFF0C;&#x6B64;&#x65F6;&#x5728;&#x8BAD;&#x7EC3;&#x96C6;&#x4E0A;&#x7684;&#x8BEF;&#x5DEE;&#x4E3A;0&#x3002;</p>
+<p><strong>the effective number of parameters of k-nearest neighbors is N/k</strong></p>
+<ul>
+<li>effective number&#xFF1A;&#x53C8;&#x540D;Degree of Freedom, &#x6216;VC-Dimension</li>
+</ul>
+<p>&#x53C2;&#x8003;&#x6587;&#x732E;:<a href="https://libingchen.me/blog/esl/featured/2018/08/05/ESLII-5-Effective-Number-KNN/" target="_blank">https://libingchen.me/blog/esl/featured/2018/08/05/ESLII-5-Effective-Number-KNN/</a></p>
+<h3 id="233-&#x4ECE;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#x5230;nn"><a name="233-&#x4ECE;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#x5230;nn" class="plugin-anchor" href="#233-&#x4ECE;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#x5230;nn"><i class="fa fa-link" aria-hidden="true"></i></a>2.3.3 &#x4ECE;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#x5230;NN</h3>
+<ul>
+<li>&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#xFF1A;&#x4F4E;&#x65B9;&#x5DEE;&#xFF0C;&#x9AD8;&#x504F;&#x5DEE;&#xFF0C;&#x4F9D;&#x8D56;&#x51B3;&#x7B56;&#x8FB9;&#x754C;</li>
+<li>k-NN&#xFF1A;&#x4F9D;&#x8D56;&#x8F93;&#x5165;&#xFF0C;&#x4E0D;&#x7A33;&#x5B9A;&#xFF0C;&#x9AD8;&#x65B9;&#x5DEE;&#x548C;&#x4F4E;&#x504F;&#x5DEE;</li>
+</ul>
+<p><em>&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x5F85;&#x7EED;-----------</em></p>
+<h2 id="24-&#x7EDF;&#x8BA1;&#x51B3;&#x7B56;&#x7406;&#x8BBA;"><a name="24-&#x7EDF;&#x8BA1;&#x51B3;&#x7B56;&#x7406;&#x8BBA;" class="plugin-anchor" href="#24-&#x7EDF;&#x8BA1;&#x51B3;&#x7B56;&#x7406;&#x8BBA;"><i class="fa fa-link" aria-hidden="true"></i></a>2.4 &#x7EDF;&#x8BA1;&#x51B3;&#x7B56;&#x7406;&#x8BBA;</h2>
+<p>&#x8BBE;<script type="math/tex; ">X \in \mathbb{R}^P</script>,<script type="math/tex; ">Y \in \mathbb{R}</script>,X&#x548C;Y&#x7684;&#x8054;&#x5408;&#x6982;&#x7387;&#x5206;&#x5E03;(<em>joint distribution</em>)&#x4E3A;<script type="math/tex; ">P(x,y)</script>&#xFF0C;&#x635F;&#x5931;&#x51FD;&#x6570;(<em>Loss function</em>)&#x4E3A;<script type="math/tex; ">L(Y,f(X))</script>&#xFF0C;&#x5047;&#x8BBE;&#x4E3A;&#x5E73;&#x65B9;&#x8BEF;&#x5DEE;&#x635F;&#x5931;(<em>squared error loss</em>):
+<script type="math/tex; mode=display">
+L(Y,f(X)) = (Y-f(X))^2
+</script>
+&#x9884;&#x6D4B;&#x8BEF;&#x5DEE;&#x7684;&#x671F;&#x671B;(<em>expected (squared) prediction error</em>)&#x4E3A;&#xFF1A;
+<script type="math/tex; mode=display">
+EPE(f) = E(Y-f(X))^2 \\ 
+        = \int[y-f(x)]^2P(dx,dy)
+</script>
+&#x6839;&#x636E;&#x6761;&#x4EF6;&#x6982;&#x7387;&#x516C;&#x5F0F; $P(X,Y) = P(Y|X)P(X)$, $P(Y|X) = P(Y,X)/P(X)$,</p>
+<p><img src="images/2.11.png" alt="image">
+<script type="math/tex; mode=display">
+EPE(f) = E_XE_{Y|X}([y-f(x)]^2|X)
+</script>
+<a href="https://stats.stackexchange.com/questions/92180/expected-prediction-error-derivation" target="_blank">https://stats.stackexchange.com/questions/92180/expected-prediction-error-derivation</a></p>
+<p>&#x6700;&#x7EC8;&#x5F97;&#x5230;
+<script type="math/tex; mode=display">
+f(x) = E(Y|X=x)
+</script>
+&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x70B9;&#x9884;&#x6D4B;&#xFF0C;&#x628A;&#x548C;&#x5B83;X&#x5411;&#x91CF;&#x53D6;&#x503C;&#x4E00;&#x6837;&#x7684;&#x6837;&#x672C;&#x70B9;&#x90FD;&#x627E;&#x51FA;&#x6765;&#xFF0C;&#x7136;&#x540E;&#x53D6;&#x4ED6;&#x4EEC;&#x7684;&#x5E73;&#x5747;&#x503C;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
+<p>k-NN&#x7684;&#x8FD1;&#x4F3C;<script type="math/tex; ">\hat{f}(x) = Avg(y_i | x_i \in N_k(x))</script>,&#x5BF9;&#x4E0A;&#x5F0F;&#x505A;&#x4E86;&#x4E24;&#x4E2A;&#x8FD1;&#x4F3C;&#xFF1A;</p>
+<ul>
+<li>&#x7528;&#x5E73;&#x5747;&#x503C;&#x53D6;&#x4EE3;&#x671F;&#x671B;</li>
+<li>&#x7528;&#x90BB;&#x57DF;&#x53D6;&#x4EE3;&#x4E86;X</li>
+</ul>
+<p>&#x5BF9;&#x4E8E;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#xFF0C;&#x5047;&#x8BBE;<script type="math/tex; ">\hat{f}(x) = x^T\beta </script> ,&#x53EF;&#x4EE5;&#x89E3;&#x5F97;
+<script type="math/tex; mode=display">
+\beta = [E(XX^T]^{-1}E(XY)
+</script>
+<img src="images/2.16.jpg" alt="image"></p>
+<p><a href="http://xuewei4d.github.io/machinelearning/notes/esl-chapter2/" target="_blank">http://xuewei4d.github.io/machinelearning/notes/esl-chapter2/</a></p>
+<p><a href="https://math.stackexchange.com/questions/508412/optimal-solution-for-expected-absolute-loss-function" target="_blank">&#x7EDD;&#x5BF9;&#x503C;&#x7684;loss&#x76F8;&#x5173;</a></p>
+<h2 id="25-&#x7EF4;&#x6570;&#x707E;&#x96BE;curse-of-dimensionality"><a name="25-&#x7EF4;&#x6570;&#x707E;&#x96BE;curse-of-dimensionality" class="plugin-anchor" href="#25-&#x7EF4;&#x6570;&#x707E;&#x96BE;curse-of-dimensionality"><i class="fa fa-link" aria-hidden="true"></i></a>2.5 &#x7EF4;&#x6570;&#x707E;&#x96BE;(<em>curse of dimensionality</em>)</h2>
+<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">File Modify: 
+2019-08-23 03:01:03
+</span></footer>
+
+
+<script type="text/javascript">var className='atoc';</script>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../ch01_Introduction/ch01_Introduction.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: ch01_Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ch02_监督学习综述","level":"1.3","depth":1,"previous":{"title":"ch01_Introduction","level":"1.2","depth":1,"path":"ch01_Introduction/ch01_Introduction.md","ref":"ch01_Introduction/ch01_Introduction.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax","fontsettings","-sharing","sharing-plus","-lunr","-search","-highlight","prism","livereload","multipart","search-plus","advanced-emoji","github","github-buttons","emphasize","splitter","mermaid-gb3","tbfed-pagefooter","expandable-chapters-small","sectionx","anchors","copy-code-button","alerts","include-csv","atoc","back-to-top-button","pageview-count"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"include-csv":{},"disqus":{"useIdentifier":false,"shortName":"qihong.fu"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy qihong.fu 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"}},"emphasize":{},"github":{"url":"https://github.com/fuqihong"},"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"multipart":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"fontSettings":{"theme":"sepia","family":"serif"},"sectionx":{"tag":"b"},"mermaid-gb3":{},"back-to-top-button":{},"pageview-count":{},"alerts":{},"github-buttons":{"repo":"fuqihong/gitbook-use","types":["star","watch","fork"],"size":"small"},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["facebook","google","twitter","weibo","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":false,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":true,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GitBook","language":"zh-hans","gitbook":"*","description":"This is a sample book created by gitbook"},"file":{"path":"ch02_监督学习综述/ch02_Overview-of-Supervised-Learning.md","mtime":"2019-08-23T03:01:03.082Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-23T03:02:13.939Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sectionx/sectionx.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-atoc/atoc.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+
+    <script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+
